@@ -1,0 +1,88 @@
+:root {
+  --text: #262430;
+  --text-muted: #79768a;
+  --bg: #ffffff;
+  --bg-alt: #f6f5f9;
+  --bg-hover: #eeecf3;
+  --border: #e6e4ec;
+  --accent: #7c3aed;
+  --accent-soft: #f2ebff;
+  --danger: #dc2626;
+  --radius: 8px;
+
+  color-scheme: light;
+  font: 14.5px/1.55 -apple-system, "Segoe UI", system-ui, Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --text: #ece9f4;
+    --text-muted: #8f8ca0;
+    --bg: #17151d;
+    --bg-alt: #1e1c26;
+    --bg-hover: #26232f;
+    --border: #2d2a37;
+    --accent: #a684fb;
+    --accent-soft: #2a2338;
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --text: #262430;
+  --text-muted: #79768a;
+  --bg: #ffffff;
+  --bg-alt: #f6f5f9;
+  --bg-hover: #eeecf3;
+  --border: #e6e4ec;
+  --accent: #7c3aed;
+  --accent-soft: #f2ebff;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --text: #ece9f4;
+  --text-muted: #8f8ca0;
+  --bg: #17151d;
+  --bg-alt: #1e1c26;
+  --bg-hover: #26232f;
+  --border: #2d2a37;
+  --accent: #a684fb;
+  --accent-soft: #2a2338;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+textarea,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: var(--accent);
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}

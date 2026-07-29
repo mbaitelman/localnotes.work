@@ -1,12 +1,14 @@
 import type { Note } from "../lib/storage";
 
 export function NoteList({
+  open,
   notes,
   activeId,
   onSelect,
   onCreate,
   onDelete,
 }: {
+  open: boolean;
   notes: Note[];
   activeId: string | undefined;
   onSelect: (note: Note) => void;
@@ -14,7 +16,7 @@ export function NoteList({
   onDelete: (note: Note) => void;
 }) {
   return (
-    <div className="note-list">
+    <div className={`note-list ${open ? "" : "collapsed"}`}>
       <button className="new-note" onClick={onCreate}>
         <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true">
           <path

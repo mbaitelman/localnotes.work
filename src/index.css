@@ -1,8 +1,8 @@
 :root {
   /* type */
-  --font-display: "Space Grotesk", -apple-system, "Segoe UI", sans-serif;
-  --font-ui: "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+  --font-display: -apple-system, "Segoe UI", system-ui, sans-serif;
+  --font-ui: -apple-system, "Segoe UI", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
 
   /* light */
   --text: #171a21;

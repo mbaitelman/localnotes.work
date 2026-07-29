@@ -26,11 +26,8 @@
   margin: 0;
 }
 
-.logo-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 5px;
-  background: var(--accent);
+.logo-mark {
+  color: var(--accent);
   flex-shrink: 0;
 }
 

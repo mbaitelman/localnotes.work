@@ -73,7 +73,12 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>
-          <span className="logo-dot" aria-hidden="true" />
+          <svg className="logo-mark" viewBox="0 0 32 32" width="18" height="18" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="currentColor" />
+            <rect x="9" y="10" width="14" height="2.6" rx="1.3" fill="var(--bg)" />
+            <rect x="9" y="14.7" width="14" height="2.6" rx="1.3" fill="var(--bg)" opacity="0.85" />
+            <rect x="9" y="19.4" width="8.5" height="2.6" rx="1.3" fill="var(--bg)" opacity="0.7" />
+          </svg>
           localnotes<span className="tld">.work</span>
         </h1>
         <ThemeToggle theme={theme} onToggle={toggleTheme} />

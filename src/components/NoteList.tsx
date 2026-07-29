@@ -35,12 +35,6 @@ export function NoteList({
             <li key={note.id} className={note.id === activeId ? "active" : ""}>
               <button className="note-item" onClick={() => onSelect(note)}>
                 <span className="note-title">{note.title || "Untitled"}</span>
-                <span className="note-date">
-                  {new Date(note.updatedAt).toLocaleDateString(undefined, {
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </span>
               </button>
               <button
                 className="delete-note"

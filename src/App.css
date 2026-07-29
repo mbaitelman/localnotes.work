@@ -4,11 +4,13 @@
   height: 100svh;
 }
 
+/* ---------- Header ---------- */
+
 .app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
+  padding: 14px 24px;
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
 }
@@ -17,23 +19,24 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 15px;
+  font-family: var(--font-display);
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.01em;
   margin: 0;
 }
 
 .logo-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
   background: var(--accent);
   flex-shrink: 0;
 }
 
 .tld {
   color: var(--text-muted);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .theme-toggle {
@@ -44,15 +47,18 @@
   height: 30px;
   background: none;
   border: 1px solid var(--border);
-  border-radius: 50%;
+  border-radius: 8px;
   color: var(--text-muted);
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .theme-toggle:hover {
   background: var(--bg-hover);
-  color: var(--text);
+  color: var(--accent);
+  border-color: var(--accent);
 }
+
+/* ---------- Body shell ---------- */
 
 .app-body {
   flex: 1;
@@ -60,55 +66,57 @@
   min-height: 0;
 }
 
-/* Note list */
+/* ---------- Note list (sidebar) ---------- */
+
 .note-list {
-  width: 250px;
+  width: 252px;
   flex-shrink: 0;
-  border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   background: var(--bg-alt);
+  border-right: 1px solid var(--border);
 }
 
 .new-note {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  margin: 12px;
+  gap: 7px;
+  margin: 14px;
   padding: 9px;
   background: var(--accent);
-  color: #fff;
+  color: #ffffff;
   border: none;
   border-radius: var(--radius);
-  font-weight: 500;
-  font-size: 13.5px;
-  transition: opacity 0.15s, transform 0.05s;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 13px;
+  transition: background 0.15s;
 }
 
 .new-note:hover {
-  opacity: 0.9;
+  background: var(--accent-strong);
 }
 
-.new-note:active {
-  transform: scale(0.98);
+.new-note svg {
+  flex-shrink: 0;
 }
 
 .note-list-empty {
   color: var(--text-muted);
   font-size: 13px;
   text-align: center;
-  margin: 24px 12px;
+  margin: 24px 16px;
 }
 
 .note-list ul {
   list-style: none;
   margin: 0;
-  padding: 0 8px 8px;
+  padding: 2px 10px 16px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
 }
 
 .note-list li {
@@ -129,29 +137,27 @@
 .note-item {
   flex: 1;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
+  flex-direction: column;
+  gap: 2px;
   background: none;
   border: none;
-  padding: 9px 10px;
+  padding: 8px 10px;
   text-align: left;
   min-width: 0;
 }
 
+.note-list li.active .note-title {
+  color: var(--accent-strong);
+}
+
 .note-title {
-  font-weight: 500;
+  font-family: var(--font-ui);
+  font-weight: 600;
   font-size: 13.5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
-}
-
-.note-date {
-  font-size: 11.5px;
-  color: var(--text-muted);
-  flex-shrink: 0;
 }
 
 .delete-note {
@@ -160,7 +166,7 @@
   justify-content: center;
   width: 26px;
   height: 26px;
-  margin-right: 4px;
+  margin-right: 6px;
   background: none;
   border: none;
   border-radius: 6px;
@@ -179,7 +185,8 @@
   color: var(--danger);
 }
 
-/* Editor */
+/* ---------- Editor ---------- */
+
 .note-editor {
   flex: 1;
   display: flex;
@@ -190,8 +197,8 @@
 .note-editor-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 24px;
+  gap: 14px;
+  padding: 14px 32px;
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
 }
@@ -200,7 +207,8 @@
   flex: 1;
   border: none;
   background: none;
-  font-size: 19px;
+  font-family: var(--font-display);
+  font-size: 21px;
   font-weight: 600;
   letter-spacing: -0.01em;
   outline: none;
@@ -218,15 +226,17 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 6px 14px;
-  font-size: 13px;
-  font-weight: 500;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--text-muted);
-  transition: background 0.12s, color 0.12s;
+  transition: border-color 0.12s, color 0.12s;
 }
 
 .preview-toggle:hover {
-  background: var(--bg-hover);
-  color: var(--text);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .note-body-input {
@@ -235,10 +245,11 @@
   resize: none;
   outline: none;
   background: none;
-  padding: 24px;
-  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  padding: 28px 32px;
+  font-family: var(--font-mono);
   font-size: 13.5px;
-  line-height: 1.7;
+  line-height: 1.75;
+  max-width: 760px;
 }
 
 .note-body-input::placeholder {
@@ -247,9 +258,10 @@
 
 .markdown-preview {
   flex: 1;
-  padding: 24px;
+  padding: 28px 32px;
   overflow-y: auto;
-  line-height: 1.65;
+  max-width: 760px;
+  line-height: 1.7;
 }
 
 .markdown-preview :first-child {
@@ -259,6 +271,8 @@
 .markdown-preview h1,
 .markdown-preview h2,
 .markdown-preview h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
   letter-spacing: -0.01em;
 }
 
@@ -278,7 +292,7 @@
   background: var(--bg-alt);
   padding: 2px 5px;
   border-radius: 4px;
-  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: 0.9em;
 }
 
@@ -290,14 +304,17 @@
 .markdown-preview blockquote {
   margin: 0 0 14px;
   padding-left: 14px;
-  border-left: 3px solid var(--border);
+  border-left: 2px solid var(--accent);
   color: var(--text-muted);
 }
 
 .markdown-preview a {
+  color: var(--accent-strong);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+/* ---------- Empty state ---------- */
 
 .empty-state {
   flex: 1;
@@ -305,21 +322,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 16px;
   color: var(--text-muted);
-  font-size: 14px;
+}
+
+.empty-state p {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
 }
 
 .empty-state button {
-  padding: 8px 16px;
+  padding: 8px 18px;
   background: var(--accent);
-  color: #fff;
+  color: #ffffff;
   border: none;
   border-radius: var(--radius);
-  font-weight: 500;
-  font-size: 13.5px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 13px;
+  transition: background 0.15s;
 }
 
 .empty-state button:hover {
-  opacity: 0.9;
+  background: var(--accent-strong);
 }

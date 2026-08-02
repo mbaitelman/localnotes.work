@@ -33,7 +33,7 @@
 }
 
 .sidebar-toggle {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 30px;
@@ -382,10 +382,6 @@
 /* ---------- Mobile ---------- */
 
 @media (max-width: 720px) {
-  .sidebar-toggle {
-    display: flex;
-  }
-
   .app-body {
     position: relative;
     overflow: hidden;

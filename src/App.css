@@ -279,7 +279,6 @@
   font-family: var(--font-mono);
   font-size: 13.5px;
   line-height: 1.75;
-  max-width: 760px;
 }
 
 .note-body-input::placeholder {
@@ -290,7 +289,6 @@
   flex: 1;
   padding: 28px 32px;
   overflow-y: auto;
-  max-width: 760px;
   line-height: 1.7;
 }
 

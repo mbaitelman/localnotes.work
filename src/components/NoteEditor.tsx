@@ -1,6 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Note } from "../lib/storage";
 import { MarkdownPreview } from "./MarkdownPreview";
+
+function isTypingTarget(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement)) return false;
+  const tag = target.tagName;
+  return (
+    tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || target.isContentEditable
+  );
+}
 
 export function NoteEditor({
   note,
@@ -13,6 +21,19 @@ export function NoteEditor({
 }) {
   const [preview, setPreview] = useState(false);
 
+  useEffect(() => {
+    if (!preview) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "e" && e.key !== "E") return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (isTypingTarget(e.target)) return;
+      e.preventDefault();
+      setPreview(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [preview]);
+
   return (
     <div className="note-editor">
       <div className="note-editor-header">
@@ -22,7 +43,11 @@ export function NoteEditor({
           onChange={(e) => onChangeTitle(e.target.value)}
           placeholder="Note title"
         />
-        <button className="preview-toggle" onClick={() => setPreview((p) => !p)}>
+        <button
+          className="preview-toggle"
+          onClick={() => setPreview((p) => !p)}
+          title={preview ? "Back to editing (press E)" : "Preview Markdown"}
+        >
           {preview ? "Edit" : "Preview"}
         </button>
       </div>
